@@ -28,6 +28,12 @@ module.exports = {
       options: {
         preset: "@theme-ui/preset-funck",
       },
+    },
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: require.resolve(`./src/cms/cms.js`)
+      }
     }
   ],
 };
