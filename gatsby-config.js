@@ -1,3 +1,5 @@
+const path = require('path');
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`
 })
@@ -30,10 +32,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-netlify-cms`,
+      resolve: `gatsby-source-microcms`,
       options: {
-        modulePath: require.resolve(`./src/cms/cms.js`)
+        apiKey: process.env.API_KEY,
+        serviceId: "goriblog",
+        apis: [
+          {
+            endopoint: "blog",
+          }
+        ]
       }
-    }
+    },
   ],
 };
